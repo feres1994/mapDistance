@@ -1,0 +1,20 @@
+#mapid {
+  height: 100vh;
+  position: relative;
+}
+#mapid .my-coords {
+  position: absolute;
+  background-color: white;
+  color: black;
+  top: 50%;
+  right: 20px;
+  z-index: 1444444444444444444444;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+.gray {
+  font-weight: bold;
+}
