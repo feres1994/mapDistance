@@ -1,5 +1,5 @@
 //***********************map creation***********************//
-var mymap = L.map("mapid").setView([35.76029352, 10.75603748], 13); //tunisia lat && long with 13 zoom
+var mymap = L.map("mapid").setView([36.40929889, 10.6541661], 13); //tunisia lat && long with 13 zoom
 
 L.tileLayer(
   //map imag and config
@@ -15,12 +15,12 @@ L.tileLayer(
 ).addTo(mymap);
 //**************blue points creation**************//
 const cords = [
-  [35.76029352, 10.75603748],
-  [35.76834406, 10.81664311],
-  [35.764356, 10.818549],
-  [35.779205, 10.807902],
-  [35.770186, 10.767053],
-  [35.77905892, 10.69856859]
+  [36.43852779, 10.70920014, 485],
+  [36.40929889, 10.6541661, 37],
+  [36.40143694, 10.63071651, 293],
+  [36.40563497, 10.5901906, 67],
+  [36.4358023494942, 10.5897684943228, 146],
+  [36.78154, 10.98989, 495]
 ];
 /******************FORMULE POUR CALCUER LA DISTANCE EN KM *******************/
 function distance(l1, l2) {
@@ -45,8 +45,11 @@ function distance(l1, l2) {
     return dist;
   }
 }
-
-/*****************************************/
+/****************GENAER6ATE RANDOM CODE*************************/
+const getRandomNumber = (n1, n2) => {
+  return Math.floor(Math.random() * (n1 - n2) + n2); //Math.floor tna7i l firgule
+  //Math.random tgenerili noumrou par defaut
+};
 //************add blue points to the map and add the point to see the distance between them********************/
 function getCoords(x) {
   var firstPointChecked = false; //test if the first point is selected or not
@@ -65,7 +68,7 @@ function getCoords(x) {
           firstPointChecked = true;
           return;
         }
-        //theni if ntsti kn l point loula selectionner w thenia lé nselectoneha
+        //theni if: ntsti kn l point loula selectionner w thenia lé nselectoneha
         // tettzedli fel box l abyeth w ne7seb distance
         if (firstPointChecked === true && secondPointChecked === false) {
           document.querySelector(".second-point").innerHTML = x._latlng;
@@ -75,6 +78,12 @@ function getCoords(x) {
             firstPointLatLng,
             secondPointLatLng
           );
+          if (parseInt(document.querySelector(".distance").innerHTML) < 10) {
+            document.querySelector(".scrumbling").innerHTML = getRandomNumber(
+              1,
+              512
+            );
+          }
           return;
         }
         //theleth if kn zouz selectionner nwali n3aweth e loula b point okra
@@ -87,6 +96,13 @@ function getCoords(x) {
             firstPointLatLng,
             secondPointLatLng
           );
+          if (parseInt(document.querySelector(".distance").innerHTML) < 10) {
+            document.querySelector(".scrumbling").innerHTML = getRandomNumber(
+              1,
+              512
+            );
+          }
+
           return;
         }
       });
